@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private EditText mEntradaText;
     private Button mCelsiusButton;
+    private Button mFahrenheitButton;
     private TextView mSaidaView;
+    private TextView mErroView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,24 +25,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mEntradaText = findViewById(R.id.text_entrada);
         mCelsiusButton = findViewById(R.id.button_para_celsius);
+        mFahrenheitButton = findViewById(R.id.button_para_fahrenheit);
         mSaidaView = findViewById(R.id.text_saida);
+        mErroView = findViewById(R.id.text_erro);
 
         mCelsiusButton.setOnClickListener(this);
+        mFahrenheitButton.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View v) {
         float entrada;
-        double resultado;
-        if (v == mCelsiusButton) {
-            try {
-                entrada = Float.valueOf(mEntradaText.getText().toString());
-            } catch (NumberFormatException ex) {
-                entrada = 0;
+        mErroView.setText("");
+        mSaidaView.setText("");
+
+        try {
+            entrada = Float.valueOf(mEntradaText.getText().toString());
+            if (v == mFahrenheitButton) {
+                converterParaFahrenheit(entrada);
             }
-            resultado = (entrada - 32) / 1.8;
-            mSaidaView.setText(String.format(Locale.ROOT, "%.2f %s", resultado, "ºC"));
+            if (v == mCelsiusButton) {
+                converterParaCelsius(entrada);
+            }
+        } catch (NumberFormatException ex) {
+            mErroView.setText("Informe novamente a temperatura");
         }
+    }
+
+    private void converterParaFahrenheit(float entrada) {
+        double resultado = (1.8 * entrada) + 32;
+        mSaidaView.setText(String.format(Locale.ROOT, "%.2f %s", resultado, "ºF"));
+    }
+
+    private void converterParaCelsius(float entrada) {
+        double resultado = (entrada - 32) / 1.8;
+        mSaidaView.setText(String.format(Locale.ROOT, "%.2f %s", resultado, "ºC"));
     }
 }
