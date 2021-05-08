@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class Cartao {
 
-    private final static double VALOR_INICIAL = 15000;
+    private final static double VALOR_INICIAL = 25000;
     private int mIdCartao;
     private double mSaldo;
 

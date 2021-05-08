@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_centena:
                 mInfoView.setText("");
                 mSorteView.setText("");
-                mValorText.setText(String.format("%.0f", valor * 100));
+                centena(valor);
+                mValorText.setText(String.format("%.0f", valor));
                 break;
             case R.id.button_milhar:
                 mInfoView.setText("");
@@ -302,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             for (Cartao c2 : cartoes) {
                                 if (c2.getmIdCartao() == idCartaoRec) {
                                     c2.receber(valor);
-                                    Log.d("transf recebedor", c2.toString());
+                                  //  Log.d("transf recebedor", c2.toString());
                                 }
                             }
                             limparTransferencias();
@@ -385,6 +386,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    private void centena(double valor){
+        if(valor < 10){
+            valor += valor * 100;
+        }
+    }
+
 
 
 }
