@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".view.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_iniciar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFF00"
+                    android:text="Iniciar"
+                    android:textAlignment="center"
+                    android:textColor="#000" />
+
+
+                <EditText
+                    android:id="@+id/text_numero_jogadores"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="Nº de jogadores"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/view_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/text_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:hint="R$"
+                android:inputType="numberDecimal"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_centena"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#0000FF"
+                    android:text="Centena"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/button_milhar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FFFF00"
+                    android:text="Milhar"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_op_pagar_receber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="#E91E63"
+                    android:text="Pagar/Receber"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/button_op_transferencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_marginTop="2dp"
+                    android:backgroundTint="#A020F0"
+                    android:text="Transferir"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/text_id_cartao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:hint="ID cartão"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_pagar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#FF0000"
+                    android:text="Pagar"
+                    android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/button_receber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#00FF00"
+                    android:text="Receber"
+                    android:textColor="#000" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/text_id_cartao_pagador"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="ID cartão pagador"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/text_id_cartao_receptor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:hint="ID cartão receptor"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button_transferir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:backgroundTint="#836FFF"
+                android:text="Transferir"
+                android:textColor="#000" />
+
+            <Button
+                android:id="@+id/button_sorte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="#00FA9A"
+                android:text="Jogue sua sorte"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/view_sorte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:layout_marginTop="2dp"
+                android:backgroundTint="#FF5722"
+                android:text="Reset"
+                android:textColor="#000" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
