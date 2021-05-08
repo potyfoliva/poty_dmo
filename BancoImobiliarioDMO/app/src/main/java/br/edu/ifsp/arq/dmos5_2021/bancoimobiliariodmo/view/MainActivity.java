@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button_centena:
                 mInfoView.setText("");
                 mSorteView.setText("");
-                centena(valor);
+                valor = centena(valor);
                 mValorText.setText(String.format("%.0f", valor));
                 break;
             case R.id.button_milhar:
@@ -387,9 +387,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void centena(double valor){
+    private double centena(double valor){
         if(valor < 10){
-            valor = valor * 100;
+            return valor * 100;
+        }else{
+            return valor;
         }
     }
 
