@@ -389,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void centena(double valor){
         if(valor < 10){
-            valor += valor * 100;
+            valor = valor * 100;
         }
     }
 
