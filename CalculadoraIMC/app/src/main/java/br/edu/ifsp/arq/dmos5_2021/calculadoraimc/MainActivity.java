@@ -44,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             calcularIMC();
         }
         if(v == mLimparButton){
+            /*
+            Muito bacana a iniciativa. É sugestão, não implementar a funcionalidade dentro do onClick(), mas
+            realizar a chamada de um método. Observo, é sugestão e não erro.
+             */
             mPesoText.setText("");
             mAlturaText.setText("");
             mImcView.setText("");
@@ -89,3 +93,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+/*
+Muito bom.
+Os incrementos ficaram muito bacana!
+Nota 10.
+ */
