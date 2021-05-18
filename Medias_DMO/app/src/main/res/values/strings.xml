@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Medias_DMO</string>
+    <string name="hint_v1">Digite o 1º valor</string>
+    <string name="hint_v2">Digite o 2º valor</string>
+    <string name="hint_v3">Digite o 3º valor</string>
+    <string name="hint_v4">Digite o 4º valor</string>
+    <string name="hint_v5">Digite o 5º valor</string>
+    <string name="button_calcular_media">Calcular média</string>
+    <string name="button_limpar_campos">Limpar campos</string>
+    <string name="msg_erro">Digite os 5 valores para calcular a média</string>
+</resources>
