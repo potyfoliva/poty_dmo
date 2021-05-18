@@ -2,7 +2,7 @@ package br.edu.ifsp.arq.domos5_2021.medias_dmo.model;
 
 import java.util.List;
 
-public class MediaHarmonica implements MediaStrategy{
+public class MediaHarmonica implements MediaStrategy {
 
     private List<Double> values;
 
@@ -12,7 +12,10 @@ public class MediaHarmonica implements MediaStrategy{
 
     @Override
     public Double calcularMedia() {
-        //TODO implementar o método.
-        return null;
+        Double resultado = 0D;
+        for (Double v : values) {
+            resultado += 1 / v;
+        }
+        return values.size() / resultado;
     }
 }

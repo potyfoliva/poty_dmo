@@ -5,7 +5,8 @@
     <string name="hint_v3">Digite o 3º valor</string>
     <string name="hint_v4">Digite o 4º valor</string>
     <string name="hint_v5">Digite o 5º valor</string>
-    <string name="button_calcular_media">Calcular média</string>
+    <string name="button_media_aritmetica">Média\n Aritmética</string>
+    <string name="button_media_harmonica">Média\n Harmônica</string>
     <string name="button_limpar_campos">Limpar campos</string>
     <string name="msg_erro">Digite os 5 valores para calcular a média</string>
 </resources>

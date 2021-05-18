@@ -15,14 +15,13 @@ public class MediaController {
         return media(ponderada);
     }
 
-    public static Double mediaArimetica(Double v1, Double v2, Double v3, Double v4, Double v5){
-        MediaAritmetica aritmetica = new MediaAritmetica(v1, v2, v3, v4, v5);
+    public static Double mediaArimetica(Double... doubles){
+        MediaAritmetica aritmetica = new MediaAritmetica(doubles);
         return media(aritmetica);
     }
 
-    public static Double mediaHarmonica(/*Indicar argumentos, se necessário*/){
-        MediaHarmonica harmonica = null;
-        //TODO implementar o restante do método
+    public static Double mediaHarmonica(List<Double> valores){
+        MediaHarmonica harmonica = new MediaHarmonica(valores);
         return media(harmonica);
     }
 

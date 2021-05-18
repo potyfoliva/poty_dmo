@@ -21,8 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mValor3EditText;
     private EditText mValor4EditText;
     private EditText mValor5EditText;
-    private Button mCalcularMediaButton;
+    private Button mMediaAritmeticaButton;
+    private Button mMediaHarmonicaButton;
     private Button mLimparCamposButton;
+    private Double v1, v2, v3, v4, v5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +36,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mValor3EditText = findViewById(R.id.edit_v3);
         mValor4EditText = findViewById(R.id.edit_v4);
         mValor5EditText = findViewById(R.id.edit_v5);
-        mCalcularMediaButton = findViewById(R.id.button_calcular_media);
+        mMediaAritmeticaButton = findViewById(R.id.button_calcular_media_aritmetica);
+        mMediaHarmonicaButton = findViewById(R.id.button_calcular_media_harmonica);
         mLimparCamposButton = findViewById(R.id.button_limpar_campos);
 
-        mCalcularMediaButton.setOnClickListener(this);
+        mMediaAritmeticaButton.setOnClickListener(this);
+        mMediaHarmonicaButton.setOnClickListener(this);
         mLimparCamposButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mCalcularMediaButton) {
-            calcularMedia();
+        if (v == mMediaAritmeticaButton) {
+            calcularMediaAritmetica();
         }
-        if(v == mLimparCamposButton){
+        if (v == mMediaHarmonicaButton) {
+            calcularMediaHarmonica();
+        }
+        if (v == mLimparCamposButton) {
             limparCampos();
         }
     }
 
-    private void calcularMedia() {
-        Double v1 = 0.0;
-        Double v2 = 0.0;
-        Double v3 = 0.0;
-        Double v4 = 0.0;
-        Double v5 = 0.0;
+    private void calcularMediaAritmetica() {
+        boolean aux = getValues();
+        if (aux) {
+            Toast.makeText(this, "Média aritmética: " + String.valueOf(MediaController.mediaArimetica(v1, v2, v3, v4, v5)), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, getString(R.string.msg_erro), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void calcularMediaHarmonica() {
+        boolean aux = getValues();
+        if (aux) {
+            List<Double> valores = new ArrayList<>();
+            valores.add(v1);
+            valores.add(v2);
+            valores.add(v3);
+            valores.add(v4);
+            valores.add(v5);
+            Toast.makeText(this, "Média harmônica: " + String.valueOf(MediaController.mediaHarmonica(valores)), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, getString(R.string.msg_erro), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean getValues() {
+        v1 = 0D;
+        v2 = 0D;
+        v3 = 0D;
+        v4 = 0D;
+        v5 = 0D;
         boolean aux = true;
         try {
             v1 = Double.valueOf(mValor1EditText.getText().toString()).doubleValue();
@@ -67,13 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (NumberFormatException ex) {
             aux = false;
         }
-
-        if (aux) {
-            Toast.makeText(this, "Média aritmética: " + String.valueOf(MediaController.mediaArimetica(v1, v2, v3, v4, v5)), Toast.LENGTH_SHORT).show();
-            limparCampos();
-        } else {
-            Toast.makeText(this, getString(R.string.msg_erro), Toast.LENGTH_LONG).show();
-        }
+        return aux;
     }
 
     private void limparCampos() {
