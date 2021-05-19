@@ -1,6 +1,6 @@
 package br.edu.ifsp.arq.domos5_2021.medias_dmo.model;
 
-public class MediaPonderada implements MediaStrategy{
+public class MediaPonderada implements MediaStrategy {
 
     private Double value1;
     private Double value2;
@@ -28,7 +28,11 @@ public class MediaPonderada implements MediaStrategy{
 
     @Override
     public Double calcularMedia() {
-        //TODO implementar método
-        return null;
+        Double somaValores = ((value1 * weight_value1) + (value2 * weight_value2) + (value3 * weight_value3) + (value4 * weight_value4) + (value5 * weight_value5));
+        int somaPesos = weight_value1 + weight_value2 + weight_value3 + weight_value4 + weight_value5;
+        if(somaPesos != 0){
+            return somaValores / somaPesos;
+        }
+        return 0D;
     }
 }

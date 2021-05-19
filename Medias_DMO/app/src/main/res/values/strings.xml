@@ -5,8 +5,16 @@
     <string name="hint_v3">Digite o 3º valor</string>
     <string name="hint_v4">Digite o 4º valor</string>
     <string name="hint_v5">Digite o 5º valor</string>
-    <string name="button_media_aritmetica">Média\n Aritmética</string>
-    <string name="button_media_harmonica">Média\n Harmônica</string>
+    <string name="hint_peso1">Peso para 1º valor</string>
+    <string name="hint_peso2">Peso para 2º valor</string>
+    <string name="hint_peso3">Peso para 3º valor</string>
+    <string name="hint_peso4">Peso para 4º valor</string>
+    <string name="hint_peso5">Peso para 5º valor</string>
+    <string name="button_calcular_media_ponderada">Calcular</string>
+    <string name="button_media_aritmetica">Média Aritmética</string>
+    <string name="button_media_harmonica">Média Harmônica</string>
+    <string name="button_media_ponderada">Média Ponderada</string>
     <string name="button_limpar_campos">Limpar campos</string>
     <string name="msg_erro">Digite os 5 valores para calcular a média</string>
+    <string name="msg_erro_divisao">Digite pesos cuja soma seja diferente de 0.</string>
 </resources>
