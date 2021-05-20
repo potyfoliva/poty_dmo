@@ -63,3 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSaidaView.setText(String.format(Locale.ROOT, "%.2f %s", resultado, "ºC"));
     }
 }
+
+/*
+Versão 1 considerada foi a do commit d40bd6b pois as demais indicavam os 2 botões.
+
+Implementação muito boa!
+
+Nota 10
+ */
