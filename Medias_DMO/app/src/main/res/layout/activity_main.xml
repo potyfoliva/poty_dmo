@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:padding="8dp"
+    tools:context="view.MainActivity">
+
+    <EditText
+        android:id="@+id/edit_v1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@color/white"
+        android:hint="@string/hint_v1"
+        android:inputType="number"
+        android:padding="4dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:hint="@string/hint_v2"
+        android:inputType="number"
+        android:padding="4dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v1" />
+
+    <EditText
+        android:id="@+id/edit_v3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:hint="@string/hint_v3"
+        android:inputType="number"
+        android:padding="4dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v2" />
+
+    <EditText
+        android:id="@+id/edit_v4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:hint="@string/hint_v4"
+        android:inputType="number"
+        android:padding="4dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v3" />
+
+    <EditText
+        android:id="@+id/edit_v5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:hint="@string/hint_v5"
+        android:inputType="number"
+        android:padding="4dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v4" />
+
+    <Button
+        android:id="@+id/button_media_aritmetica"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="5dp"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:text="@string/button_media_aritmetica"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@id/button_media_harmonica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v5" />
+
+    <Button
+        android:id="@+id/button_media_harmonica"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:text="@string/button_media_harmonica"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@id/button_media_ponderada"
+        app:layout_constraintStart_toEndOf="@id/button_media_aritmetica"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v5" />
+
+    <Button
+        android:id="@+id/button_media_ponderada"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:text="@string/button_media_ponderada"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_media_harmonica"
+        app:layout_constraintTop_toBottomOf="@+id/edit_v5" />
+
+    <Button
+        android:id="@+id/button_limpar_campos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:text="@string/button_limpar_campos"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_media_aritmetica" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
