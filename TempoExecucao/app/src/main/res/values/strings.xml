@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TempoExecucao</string>
+    <string name="btn_tempo">TEMPO EM EXECUÇÃO</string>
+    <string name="tempo_criacao">Tempo de criação: </string>
+    <string name="tempo_pausado">Tempo pausado (paused): </string>
+    <string name="tempo_parado">Tempo parado (stopped): </string>
+    <string name="tempo_execucao">Em execução por: </string>
+
+</resources>
