@@ -306,3 +306,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 }
+
+/*
+Excelente seu projeto! Parabéns!!
+Gostei bastante das propostas de sorte.
+
+Achei falta da funcionalidade de saldo do cartão.
+
+Acho que pode remodelar o layout para ficar mais intuitivo ao usuário, por exemplo, deixando botões
+inativos durante a realização de uma operação. ALém disso, na máquina de cartões física, os botões
+M e K são os responsáveis por efetivar a operação, em seu app deve-se utilizar o botão "Transferir",
+por exemplo. Outra sugestão é ser prudente com as cores, o exagero de cores incomoda muitos usuários.
+
+Nota: 9,5
+ */
