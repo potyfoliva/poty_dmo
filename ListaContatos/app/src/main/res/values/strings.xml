@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ListaContatos</string>
+    <string name="novo_contato">Adicionar novo contato</string>
+    <string name="novo_nome">Digite o nome</string>
+    <string name="novo_apelido">Digite o apelido</string>
+    <string name="novo_telefone">Digite o telefone</string>
+    <string name="novo_email">Digite o email</string>
+    <string name="botao_salvar">Salvar contato</string>
+    <string name="msg_fav">Você já selecionou 5 favoritos.</string>
+    <string name="msg_success">Dados salvos com sucesso</string>
+    <string name="arquivo_preferencias">arquivo.preferencias</string>
+</resources>
