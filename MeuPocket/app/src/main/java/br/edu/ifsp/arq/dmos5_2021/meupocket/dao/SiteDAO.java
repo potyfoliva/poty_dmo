@@ -10,7 +10,7 @@ public class SiteDAO {
     private List<Site> siteList;
 
     public SiteDAO() {
-        siteList = new ArrayList<>(9);
+        siteList = new ArrayList<>();
         siteList.add(new Site("google", "www.google.com.br"));
         siteList.add(new Site("duckduckgo", "www.duckduckgo.com"));
         siteList.add(new Site("ifsparq", "www.arq.ifsp.edu.br"));
