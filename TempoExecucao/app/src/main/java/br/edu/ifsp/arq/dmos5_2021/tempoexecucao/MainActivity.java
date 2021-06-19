@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static final String TAG = "MeuApp";
+    public static final String TAG = "Poty";
     private long mTempoExecucao = 0;
     private long mTempoCriacao = 0;
     private long mTempoPausado = 0;
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTempoInicial = System.currentTimeMillis();
         mCriado = true;
         Log.i(TAG, "Executando o onCreate()");
+        Log.i(TAG, "Estado: Created");
 
         mViewCriado = findViewById(R.id.view_criado);
         mViewPausado = findViewById(R.id.view_pausado);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         Log.i(TAG, "Executando o onStart()");
+        Log.i(TAG, "Estado: Started");
     }
 
     @Override
@@ -63,12 +65,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            calcularTempoPausado();
         }
         Log.i(TAG, "Executando o onResume()");
+        Log.i(TAG, "Estado: Resumed");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.i(TAG, "Executando o onPause()");
+        Log.i(TAG, "Estado: Paused");
         mInicioPausado = System.currentTimeMillis();
         mPausado = true;
     }
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStop() {
         super.onStop();
         Log.i(TAG, "Executando o onStop()");
+        Log.i(TAG, "Estado: Stopped");
         calcularTempoPausado();
         mInicioParado = System.currentTimeMillis();
     }
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onRestart() {
         super.onRestart();
         Log.i(TAG, "Executando o onRestart()");
+        Log.i(TAG, "Estado: Started");
         calcularTempoParado();
     }
 
@@ -92,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "Executando o onDestroy()");
+        Log.i(TAG, "Estado: Destroyed");
     }
 
     @Override
