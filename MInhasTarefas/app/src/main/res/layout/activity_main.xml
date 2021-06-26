@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <Button
+        android:id="@+id/button_tarefas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_tarefas"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/button_tarefas_concluidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_tarefas_concluidas"
+        app:layout_constraintTop_toBottomOf="@id/button_tarefas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_temas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:text="Temas:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_tarefas_concluidas" />
+
+    <Button
+        android:id="@+id/button_tema_candy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Candy"
+        app:layout_constraintTop_toBottomOf="@id/text_temas"
+        app:layout_constraintEnd_toStartOf="@id/button_tema_escuro"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/button_tema_escuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Escuro"
+        app:layout_constraintTop_toBottomOf="@id/text_temas"
+        app:layout_constraintStart_toEndOf="@id/button_tema_candy"
+        app:layout_constraintEnd_toStartOf="@id/button_tema_padrao"/>
+
+    <Button
+        android:id="@+id/button_tema_padrao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Padrão"
+        app:layout_constraintTop_toBottomOf="@id/text_temas"
+        app:layout_constraintStart_toEndOf="@id/button_tema_escuro"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

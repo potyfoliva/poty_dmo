@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MInhasTarefas</string>
+    <string name="btn_tarefas">Lista de tarefas</string>
+    <string name="btn_tarefas_concluidas">Lista de tarefas concluídas</string>
+    <string name="btn_add">Adicionar tarefa</string>
+    <string name="tarefa_descricao">Descrição</string>
+    <string name="tarefa_data">Data</string>
+    <string name="tarefa_prioridade">Prioridade</string>
+    <string name="btn_salvar">Salvar tarefa</string>
+    <string name="text_prioridade">Prioridade:</string>
+    <string-array name="spiner_prioridades">
+        <item>Sem prioridade</item>
+        <item>Baixa</item>
+        <item>Média</item>
+        <item>Alta</item>
+    </string-array>
+    <string name="checkbox_ligacao">Ligação</string>
+    <string name="hint_ligacao">Digite o nº de telefone</string>
+    <string name="success_msg">Dados salvos</string>
+    <string name="btn_remover">Remover tarefa</string>
+
+</resources>
