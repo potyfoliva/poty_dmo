@@ -35,9 +35,6 @@ public class TarefaDAO {
         listaTarefas = new ArrayList<>();
         selectAll();
         ordenarTarefas();
-         /*SharedPreferences.Editor prefsEditor = this.context.getSharedPreferences(Constantes.DATA_FILE_NAME, Context.MODE_PRIVATE).edit();
-        prefsEditor.clear();
-        prefsEditor.commit();*/
     }
 
     public static synchronized TarefaDAO getInstance(Context context){
@@ -85,13 +82,12 @@ public class TarefaDAO {
                     tarefa = new Tarefa(
                             jsonObject.getString(Constantes.ATTR_DESCRICAO),
                             jsonObject.getString(Constantes.ATTR_PRIORIDADE),
-                            jsonObject.getString(Constantes.ATTR_DATA));
+                            jsonObject.getString(Constantes.ATTR_DATA),
+                            jsonObject.getString(Constantes.ATTR_TELEFONE));
                     tarefa.setConcluida(jsonObject.getBoolean(Constantes.ATTR_CONCLUIDA));
                     listaTarefas.add(tarefa);
                     Log.i("tag", tarefa.toString());
                 }
-                //ordenarTarefasPelaDescricao();
-                //ordenarTarefasPelaPrioridade();
                 ordenarTarefas();
             }catch (JSONException e){
                 Log.e(TAG, "Erro ao recuperar dados do JSON");
@@ -117,6 +113,7 @@ public class TarefaDAO {
                     jsonObject.put(Constantes.ATTR_DESCRICAO, t.getDescricao());
                     jsonObject.put(Constantes.ATTR_PRIORIDADE, t.getPrioridade());
                     jsonObject.put(Constantes.ATTR_DATA, t.getData());
+                    jsonObject.put(Constantes.ATTR_TELEFONE, t.getTelefone());
                     jsonObject.put(Constantes.KEY_CONCLUIDA, t.isConcluida());
                     jsonArray.put(jsonObject);
                 } catch (JSONException e) {
@@ -139,12 +136,13 @@ public class TarefaDAO {
         }
     }
 
-    public void updateTarefa(String oldDescricao, String descricao, String prioridade, String data){
+    public void updateTarefa(String oldDescricao, String descricao, String prioridade, String data, String telefone){
         Tarefa alterar = find(oldDescricao);
         if(alterar != null){
             alterar.setDescricao(descricao);
             alterar.setPrioridade(prioridade);
             alterar.setData(data);
+            alterar.setTelefone(telefone);
             ordenarTarefas();
             commitAll();
             if(!listaTarefas.isEmpty()){
@@ -184,10 +182,7 @@ public class TarefaDAO {
 
     public void concluirTarefa(Tarefa tarefa){
         if(tarefa != null && listaTarefas.contains(tarefa) && !tarefa.isConcluida()){
-            //listaTarefas.remove(tarefa);
             tarefa.setConcluida(true);
-            //listaTarefasConcluidas.add(tarefa);
-            //ordenarTarefasPelaDescricao();
             ordenarTarefas();
             commitAll();
             if(!listaTarefas.isEmpty()){
@@ -197,19 +192,7 @@ public class TarefaDAO {
         }
     }
 
-
-
-    /*private void ordenarTarefasPelaDescricao() {
-        Collections.sort(listaTarefas);
-    }*/
-
     private void ordenarTarefas(){
-
-        //Set<Tarefa> listaTree = new TreeSet<>();
-
-       // listaTree = listaTarefas;
-
-        //Collections.sort(listaTarefas);
 
         List<Tarefa> listaAux = listaTarefas;
         List<Tarefa> listaPrioridadeAlta = new ArrayList<>();
@@ -261,56 +244,10 @@ public class TarefaDAO {
             }
         }
 
-        /*for (Tarefa t : listaAux) {
-            for (Tarefa t2 : listaPrioridadeVazia) {
-                if(listaAux.contains())
-            }
-        }*/
-
-        /*for (Tarefa t : listaAux) {
-            if(listaPrioridadeVazia.contains(t)){
-                lis
-            }
-        }*/
-
-
-        /*for (int i = 0; i <= listaAux.size(); i++) {
-            if(listaAux.get(i).getData().compareTo(listaAux.get(i++).getData()) == -1){
-
-            }else if(listaAux.get(i).getData().compareTo(listaAux.get(i++).getData()) == 0){
-
-            }else if(listaAux.get(i).getData().compareTo(listaAux.get(i++).getData()) == 1){
-
-            }
-        }*/
-
         listaTarefas.clear();
         listaTarefas.addAll(listaOrdenada);
-        //listaOrdenada.clear();
-        //listaOrdenada.addAll(listaAux);
 
-        /*for (Tarefa t : listaPrioridadeAlta) {
-            listaOrdenadaPrioridade.remove(t);
-        }
-        for (Tarefa t : listaPrioridadeMedia) {
-            listaOrdenadaPrioridade.remove(t);
-        }
-        for (Tarefa t : listaPrioridadeBaixa) {
-            listaOrdenadaPrioridade.remove(t);
-        }
-        for (Tarefa t : listaPrioridadeVazia) {
-            listaOrdenadaPrioridade.remove(t);
-            listaOrdenadaPrioridade.remove(t);
-        }
-
-        for (Tarefa t : listaOrdenadaPrioridade) {
-            listaOrdenadaPrioridade.remove(t);
-        }*/
-
-
-        Log.i("lista ordenada pela prioridade", listaAux.toString());
+        //Log.i("lista ordenada pela prioridade", listaAux.toString());
 
     }
-
-
 }

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -80,7 +81,8 @@ public class ListaTarefasActivity extends AppCompatActivity {
                             this,
                             data.getStringExtra(Constantes.KEY_DESCRICAO),
                             data.getStringExtra(Constantes.KEY_PRIORIDADE),
-                            data.getStringExtra(Constantes.KEY_DATA)
+                            data.getStringExtra(Constantes.KEY_DATA),
+                            data.getStringExtra(Constantes.KEY_TELEFONE)
                     );
                     break;
                 case Constantes.REQUEST_CODE_UPDATE_TAREFA:
@@ -88,7 +90,8 @@ public class ListaTarefasActivity extends AppCompatActivity {
                     String descricao = data.getStringExtra(Constantes.KEY_DESCRICAO);
                     String prioridade = data.getStringExtra(Constantes.KEY_PRIORIDADE);
                     String dataLimite = data.getStringExtra(Constantes.KEY_DATA);
-                    TarefaController.updateTarefa(this, descricaoAnterior, descricao, prioridade, dataLimite);
+                    String telefone = data.getStringExtra(Constantes.KEY_TELEFONE);
+                    TarefaController.updateTarefa(this, descricaoAnterior, descricao, prioridade, dataLimite, telefone);
                     break;
             }
             //updateAdapter();
@@ -109,23 +112,13 @@ public class ListaTarefasActivity extends AppCompatActivity {
         bundle.putString(Constantes.KEY_DESCRICAO, mTarefas.get(position).getDescricao());
         bundle.putString(Constantes.KEY_PRIORIDADE, mTarefas.get(position).getPrioridade());
         bundle.putString(Constantes.KEY_DATA, mTarefas.get(position).getData());
+        bundle.putString(Constantes.KEY_TELEFONE, mTarefas.get(position).getTelefone());
 
         Intent intent = new Intent(this, TarefaActivity.class);
         intent.putExtra(Constantes.THEME_KEY, temaSelecionado);
         intent.putExtras(bundle);
         startActivityForResult(intent, Constantes.REQUEST_CODE_UPDATE_TAREFA);
     }
-
-    /*private void removeTarefa(int position) {
-        Bundle bundle = new Bundle();
-        bundle.putString(Constantes.KEY_DESCRICAO, mTarefas.get(position).getDescricao());
-        bundle.putString(Constantes.KEY_PRIORIDADE, mTarefas.get(position).getPrioridade());
-        bundle.putString(Constantes.KEY_DATA, mTarefas.get(position).getData());
-
-        Intent intent = new Intent(this, TarefaActivity.class);
-        intent.putExtras(bundle);
-        startActivityForResult(intent, Constantes.REQUEST_CODE_UPDATE_TAREFA);
-    }*/
 
     private void getLista(){
         if(tipoLista.equals(Constantes.LISTA1)){

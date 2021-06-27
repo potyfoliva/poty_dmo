@@ -9,16 +9,17 @@ public class Tarefa implements Comparable<Tarefa>{
     private String descricao;
     private String prioridade;
     private String data;
-    //private String telefone;
+    private String telefone;
     private boolean concluida;
 
     public Tarefa() {
     }
 
-    public Tarefa(String descricao, String prioridade, String data) {
+    public Tarefa(String descricao, String prioridade, String data, String telefone) {
         this.descricao = descricao;
         this.prioridade = prioridade;
         this.data = data;
+        this.telefone = telefone;
         concluida = false;
     }
 
@@ -54,13 +55,13 @@ public class Tarefa implements Comparable<Tarefa>{
         this.concluida = concluida;
     }
 
-   /* public String getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }*/
+    }
 
     @Override
     public String toString() {
@@ -68,7 +69,7 @@ public class Tarefa implements Comparable<Tarefa>{
                 "descrição=" + descricao  +
                 ", prioridade=" + prioridade +
                 ", data=" + data +
-                //", telefone=" + telefone +
+                ", telefone=" + telefone +
                 '}';
     }
 
@@ -76,9 +77,5 @@ public class Tarefa implements Comparable<Tarefa>{
     public int compareTo(Tarefa t) {
         return this.getData().compareTo(t.getData());
     }
-
-    /*public int compareToData(Tarefa t) {
-        return this.getData().compareTo(t.getData());
-    }*/
 
 }

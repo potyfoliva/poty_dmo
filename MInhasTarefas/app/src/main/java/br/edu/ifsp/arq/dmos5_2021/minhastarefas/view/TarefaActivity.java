@@ -39,6 +39,7 @@ public class TarefaActivity extends AppCompatActivity {
     private String descricao;
     private String data;
     private String prioridade;
+    private String telefone;
     private String temaSelecionado;
 
     @Override
@@ -69,9 +70,11 @@ public class TarefaActivity extends AppCompatActivity {
             descricao = bundle.getString(Constantes.KEY_DESCRICAO);
             data = bundle.getString(Constantes.KEY_DATA);
             prioridade = bundle.getString(Constantes.KEY_PRIORIDADE);
+            telefone = bundle.getString(Constantes.KEY_TELEFONE);
 
             mDescricaoEdit.setText(descricao);
             mDataEdit.setText(data);
+            mTelefoneEdit.setText(telefone);
             spinnerPos = mAdapter.getPosition(prioridade);
             mSpinner.setSelection(spinnerPos);
 
@@ -97,7 +100,7 @@ public class TarefaActivity extends AppCompatActivity {
                     mTelefoneEdit.getText().toString();
                 }else{
                     mTelefoneEdit.setEnabled(false);
-                    mTelefoneEdit = null;
+                    mTelefoneEdit.setText("");
                 }
             break;
         }
@@ -105,57 +108,26 @@ public class TarefaActivity extends AppCompatActivity {
 
     private void salvarTarefas(){
         Intent intent = new Intent();
-        String fone = mTelefoneEdit.getText().toString();
         if(checked){
-            intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse(fone));
-            //startActivity(intent);
-            //finish();
-        }else {
-            //intent = new Intent();
-            intent.putExtra(Constantes.KEY_DESCRICAO, mDescricaoEdit.getText().toString());
-            intent.putExtra(Constantes.KEY_PRIORIDADE, mSpinner.getSelectedItem().toString());
-            intent.putExtra(Constantes.KEY_DESCRICAO_ANTERIOR, descricao);
-            if (mDataEdit.getText().toString().isEmpty()) {
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                LocalDate now = LocalDate.now();
-                String hoje = dtf.format(now);
-                intent.putExtra(Constantes.KEY_DATA, hoje);
-            } else {
-                intent.putExtra(Constantes.KEY_DATA, mDataEdit.getText().toString());
-            }
-
-            setResult(ListaTarefasActivity.RESULT_OK, intent);
-            Toast.makeText(this, getString(R.string.success_msg), Toast.LENGTH_SHORT).show();
-            finish();
+            intent.putExtra("phone", mTelefoneEdit.getText().toString());
         }
-    }
-
-    /*private void removerTarefas(){
-        Intent intent = new Intent();
         intent.putExtra(Constantes.KEY_DESCRICAO, mDescricaoEdit.getText().toString());
         intent.putExtra(Constantes.KEY_PRIORIDADE, mSpinner.getSelectedItem().toString());
-        intent.putExtra(Constantes.KEY_DATA, mDataEdit.getText().toString());
-       /* if(data != "") {
+        intent.putExtra(Constantes.KEY_DESCRICAO_ANTERIOR, descricao);
+        intent.putExtra(Constantes.KEY_TELEFONE, mTelefoneEdit.getText().toString());
+        if (mDataEdit.getText().toString().isEmpty()) {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate now = LocalDate.now();
+            String hoje = dtf.format(now);
+            intent.putExtra(Constantes.KEY_DATA, hoje);
+        } else {
             intent.putExtra(Constantes.KEY_DATA, mDataEdit.getText().toString());
-        }else{
-            intent.putExtra(Constantes.KEY_DATA, "");
         }
 
-        setResult(Activity.RESULT_OK, intent);
-
+        setResult(ListaTarefasActivity.RESULT_OK, intent);
         Toast.makeText(this, getString(R.string.success_msg), Toast.LENGTH_SHORT).show();
-
         finish();
-    }*/
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home){
-            setResult(RESULT_CANCELED);
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void getTema(){

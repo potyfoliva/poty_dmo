@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class ItemTarefaAdapter extends RecyclerView.Adapter<ItemTarefaAdapter.Vi
         Tarefa tarefa = mTarefas.get(position);
         holder.descricaoTextView.setText(tarefa.getDescricao());
         holder.dataTextView.setText(tarefa.getData());
+        holder.telefoneTextView.setText(tarefa.getTelefone());
 
         if (tarefa.getPrioridade().equals(Constantes.PRIORIDADE_BAIXA)) {
             holder.prioridadeImageView.setColorFilter(mContext.getResources().getColor(R.color.green, mContext.getTheme()));
@@ -96,17 +98,15 @@ public class ItemTarefaAdapter extends RecyclerView.Adapter<ItemTarefaAdapter.Vi
 
     private void concluiTarefa(int position){
         Tarefa tarefa = mTarefas.get(position);
+        if(!tarefa.getTelefone().isEmpty()){
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + tarefa.getTelefone()));
+            mContext.startActivity(intent);
+        }
+
         TarefaController.concluiTarefa(mContext, tarefa);
-        //notifyItemChanged(position);
         mTarefas.remove(tarefa);
-
         notifyDataSetChanged();
-        //notifyItemRemoved(position);
-
-        /*Intent intent = new Intent();
-        intent.putExtra("tarefa", tarefa);
-        setResult(ListaTarefasActivity.RESULT_OK, intent);*/
-
     }
 
 
@@ -126,8 +126,6 @@ public class ItemTarefaAdapter extends RecyclerView.Adapter<ItemTarefaAdapter.Vi
         Tarefa tarefa = mTarefas.get(position);
         TarefaController.removeTarefa(mContext, tarefa);
         mTarefas.remove(tarefa);
-        //notifyItemChanged(position);
-        //notifyItemRemoved(position);
         notifyDataSetChanged();
     }
 
@@ -144,6 +142,7 @@ public class ItemTarefaAdapter extends RecyclerView.Adapter<ItemTarefaAdapter.Vi
         public ImageView prioridadeImageView;
         public TextView descricaoTextView;
         public TextView dataTextView;
+        public TextView telefoneTextView;
         public ImageView removeTarefaImageView;
         public ImageView concluirTarefaImageView;
 
@@ -152,6 +151,7 @@ public class ItemTarefaAdapter extends RecyclerView.Adapter<ItemTarefaAdapter.Vi
             prioridadeImageView = itemView.findViewById(R.id.img_icone_prioridade);
             descricaoTextView = itemView.findViewById(R.id.text_descricao);
             dataTextView = itemView.findViewById(R.id.text_data);
+            telefoneTextView = itemView.findViewById(R.id.text_telefone);
             removeTarefaImageView = itemView.findViewById(R.id.img_icone_remover);
             concluirTarefaImageView = itemView.findViewById(R.id.img_icone_concluir);
             itemView.setOnClickListener(this);

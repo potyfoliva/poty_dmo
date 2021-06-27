@@ -51,7 +51,6 @@
         android:layout_marginStart="6dp"
         android:maxWidth="240dp"
         android:padding="12dp"
-        android:text="descrição"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/img_icone_prioridade"
         app:layout_constraintTop_toTopOf="@id/img_icone_prioridade"/>
@@ -62,9 +61,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:padding="4dp"
-        android:text="data"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/img_icone_prioridade"
         app:layout_constraintTop_toBottomOf="@id/text_descricao" />
+
+    <TextView
+        android:id="@+id/text_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:padding="4dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/img_icone_prioridade"
+        app:layout_constraintTop_toBottomOf="@id/text_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,8 +17,8 @@ public class TarefaController {
         return TarefaDAO.getInstance(context).getTarefasConcluidas();
     }
 
-    public static void addTarefa(Context context, String descricao, String prioridade, String data){
-        Tarefa novaTarefa = new Tarefa(descricao, prioridade, data);
+    public static void addTarefa(Context context, String descricao, String prioridade, String data, String telefone){
+        Tarefa novaTarefa = new Tarefa(descricao, prioridade, data, telefone);
         TarefaDAO.getInstance(context).addTarefa(novaTarefa);
     }
 
@@ -30,7 +30,7 @@ public class TarefaController {
         TarefaDAO.getInstance(context).concluirTarefa(tarefa);
     }
 
-    public static void updateTarefa(Context context, String oldDescricao, String descricao, String prioridade, String data){
-        TarefaDAO.getInstance(context).updateTarefa(oldDescricao, descricao, prioridade, data);
+    public static void updateTarefa(Context context, String oldDescricao, String descricao, String prioridade, String data, String telefone){
+        TarefaDAO.getInstance(context).updateTarefa(oldDescricao, descricao, prioridade, data, telefone);
     }
 }
