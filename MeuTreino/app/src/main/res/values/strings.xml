@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MeuTreino</string>
+    <string name="btn_exercicios">Exercícios</string>
+    <string name="btn_academia">Minha academia</string>
+    <string name="btn_add">Adicionar aparelho</string>
+    <string name="btn_rmv">Remover aparelho</string>
+    <string name="txt_info_1">Antes de iniciar qualquer exercício, é recomendado que consulte um médico e faça uma análise sobre a sua saúde antes de qualquer exercício físico.</string>
+    <string name="txt_info_2">Sempre faça alongamentos, eles previnem lesões musculares e ainda contribuem para a melhor flexibilidade no corpo.
+        Alongue o pescoço, a região das pernas e principalmente a coluna, para que não ocorra grandes impactos em suas articulações.</string>
+    <string name="titulo_minha_academia">Minha Academia</string>
+    <string name="titulo_exercicios">Exercícios</string>
+    <string name="msg_aparelho_inserido">Aparelho inserido.</string>
+    <string name="msg_aparelho_removido">Aparelho removido.</string>
+
+</resources>
