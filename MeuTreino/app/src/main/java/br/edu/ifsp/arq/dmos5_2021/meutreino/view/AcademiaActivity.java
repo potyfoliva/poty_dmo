@@ -36,6 +36,11 @@ public class AcademiaActivity extends AppCompatActivity {
         mAparelhosRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AcademiaController.updateAdapterDataSource(this, mItemAparelhoAdapter);
+    }
 
     private void exibirAparelho(int position){
         String nome = mItemAparelhoAdapter.getDataSource().get(position).getNome();

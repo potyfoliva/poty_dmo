@@ -23,6 +23,19 @@ public class AcademiaController {
         return dao.delete(new Academia(aparelho));
     }
 
+    public static void updateAdapterDataSource(Context context, ItemAparelhoAdapter adapter){
+        List<Academia> aparelhosAcademia;
+        AcademiaDAO dao = new AcademiaDAO(context);
+        aparelhosAcademia = dao.recuperate();
+
+        List<Aparelho> aparelhos = new ArrayList<>();
+        for (Academia a : aparelhosAcademia) {
+            aparelhos.add(a.getAparelho());
+        }
+
+        adapter.setDataSource(aparelhos);
+    }
+
     public static ItemAparelhoAdapter getAparelhosAcademiaAdapter(Context context, RecyclerItemClickListener listener){
         List<Academia> aparelhosAcademia;
         AcademiaDAO dao = new AcademiaDAO(context);
