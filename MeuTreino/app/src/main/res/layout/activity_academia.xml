@@ -7,7 +7,7 @@
     tools:context=".view.AcademiaActivity">
 
     <TextView
-        android:id="@+id/txt_titulo_exercicios"
+        android:id="@+id/txt_titulo_minha_academia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
@@ -24,6 +24,6 @@
         android:id="@+id/recycler_aparelhos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/txt_titulo_exercicios" />
+        app:layout_constraintTop_toBottomOf="@id/txt_titulo_minha_academia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

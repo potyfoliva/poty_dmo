@@ -14,11 +14,14 @@ import br.edu.ifsp.arq.dmos5_2021.meutreino.constants.Constants;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.controller.AcademiaController;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.controller.AparelhoController;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Aparelho;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Exercicio;
 
 public class AcademiaActivity extends AppCompatActivity {
 
     private RecyclerView mAparelhosRecyclerView;
     private ItemAparelhoAdapter mItemAparelhoAdapter;
+
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,12 @@ public class AcademiaActivity extends AppCompatActivity {
 
         mAparelhosRecyclerView = findViewById(R.id.recycler_aparelhos);
 
-        mItemAparelhoAdapter = AcademiaController.getAparelhosAcademiaAdapter(this, position -> exibirAparelho(position));
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            username = bundle.getString(Constants.KEY_USERNAME);
+        }
+
+        mItemAparelhoAdapter = AcademiaController.getAparelhosAcademiaAdapter(this, username, position -> exibirAparelho(position));
 
         RecyclerView.LayoutManager manager = new LinearLayoutManager(this);
         mAparelhosRecyclerView.setLayoutManager(manager);
@@ -39,11 +47,11 @@ public class AcademiaActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        AcademiaController.updateAdapterDataSource(this, mItemAparelhoAdapter);
+        AcademiaController.updateAdapterDataSource(this, username, mItemAparelhoAdapter);
     }
 
     private void exibirAparelho(int position){
-        String nome = mItemAparelhoAdapter.getDataSource().get(position).getNome();
+       /* String nome = mItemAparelhoAdapter.getDataSource().get(position).getNome();
         Aparelho aparelho = AparelhoController.exibirAparelho(this, nome);
 
         Bundle bundle = new Bundle();
@@ -54,6 +62,6 @@ public class AcademiaActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, AparelhoActivity.class);
         intent.putExtras(bundle);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

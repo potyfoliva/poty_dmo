@@ -6,19 +6,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Academia;
-import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Aparelho;
-import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Exercicio;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "meu_treino.db";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public SQLiteHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
 
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ExercicioContract.createTable());
@@ -28,6 +24,45 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         inserirAparelhos(db);
 
         db.execSQL(AcademiaContract.createTable());
+
+        //db.execSQL(UsuarioContract.createTable());
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        String sql;
+        switch (oldVersion) {
+            case 1:
+                db.execSQL(UsuarioContract.createTable());
+
+                sql = "DROP TABLE " + AcademiaContract.AcademiaEntry.TABLE_NAME;
+                db.execSQL(sql);
+                db.execSQL(AcademiaContract.createTable());
+
+                db.execSQL(AtividadeContract.createTable());
+
+                db.execSQL(TreinoContract.createTable());
+
+                //o correto seria fazer o update na tabela academia,
+                //mas não haveria como na 1ª versão não havia salvado nenhuma referencia ao usuario,
+                //decidi apagar e criar a tabela novamente, para que o usuário logado salve os aparelhos no seu perfil
+                /*db.execSQL(AcademiaContract.alterTableToVersao2());
+
+                sql = "ALTER TABLE " + AcademiaContract.AcademiaEntry.TABLE_NAME
+                        + " RENAME TO " + AcademiaContract.AcademiaEntry.TABLE_NAME_OLD;
+                db.execSQL(sql);
+
+                sql = "INSERT INTO " + AcademiaContract.AcademiaEntry.TABLE_NAME + " ("
+                        + AcademiaContract.AcademiaEntry.COLUMN_APARELHO + ") "
+                        + " SELECT "
+                        + AcademiaContract.AcademiaEntry.COLUMN_APARELHO
+                        + " FROM " + AcademiaContract.AcademiaEntry.TABLE_NAME_OLD;
+                db.execSQL(sql);
+
+                sql = "DROP TABLE " + AcademiaContract.AcademiaEntry.TABLE_NAME_OLD;
+                db.execSQL(sql);*/
+        }
+
     }
 
     public void inserirExercicios(SQLiteDatabase db){
@@ -109,45 +144,4 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(sql_aparelho_5);
 
     }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-
-    /*@Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql;
-        switch (oldVersion){
-            case 1:
-                db.execSQL(LivroContract.alterTableToVersao2());
-            case 2:
-                //Criar table amigo
-                db.execSQL(AmigoContract.createTable());
-
-                //Renomeia tabela livros
-                sql = "ALTER TABLE " + LivroContract.LivroEntry.TABLE_NAME
-                        + " RENAME TO " + LivroContract.LivroEntry.TABLE_NAME_OLD;
-                db.execSQL(sql);
-
-                //Cria nova tabela livros com a chave primaria
-                db.execSQL(LivroContract.createTable());
-
-                //Insere todos os livros já cadastrados na nova tabela livros
-                sql = "INSERT INTO " + LivroContract.LivroEntry.TABLE_NAME + " ("
-                        + LivroContract.LivroEntry.COLUMN_TITLE + ", "
-                        + LivroContract.LivroEntry.COLUMN_AUTHOR + ", "
-                        + LivroContract.LivroEntry.COLUMN_BORROWED + ") "
-                        + " SELECT "
-                        + LivroContract.LivroEntry.COLUMN_TITLE + ", "
-                        + LivroContract.LivroEntry.COLUMN_AUTHOR + ", "
-                        + LivroContract.LivroEntry.COLUMN_BORROWED
-                        + " FROM " + LivroContract.LivroEntry.TABLE_NAME_OLD;
-                db.execSQL(sql);
-
-                //Apaga a tabela livros antiga
-                sql = "DROP TABLE " + LivroContract.LivroEntry.TABLE_NAME_OLD;
-                db.execSQL(sql);
-        }
-    }*/
 }

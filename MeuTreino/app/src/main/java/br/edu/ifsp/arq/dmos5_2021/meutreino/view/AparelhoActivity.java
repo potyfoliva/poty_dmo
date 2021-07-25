@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,8 +14,10 @@ import android.widget.Toast;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.R;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.constants.Constants;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.controller.AcademiaController;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.controller.UsuarioController;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Aparelho;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Exercicio;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Usuario;
 
 public class AparelhoActivity extends AppCompatActivity {
 
@@ -25,10 +28,12 @@ public class AparelhoActivity extends AppCompatActivity {
     private Button mRemoverButton;
 
     private Aparelho aparelho;
+    private Usuario usuario;
     private Exercicio exercicio;
     private String nome;
     private String foto;
     private String uso;
+    private String username;
 
 
     @Override
@@ -51,6 +56,7 @@ public class AparelhoActivity extends AppCompatActivity {
             uso = bundle.getString(Constants.KEY_USO);
             exercicio = new Exercicio(bundle.getString(Constants.KEY_EXERCICIO));
             aparelho = new Aparelho(nome, uso, foto, exercicio);
+            username = bundle.getString(Constants.KEY_USERNAME);
 
             int imageResource = getResources().getIdentifier(foto , null, getPackageName());
             Drawable res = ContextCompat.getDrawable(getApplicationContext(), imageResource);
@@ -62,13 +68,15 @@ public class AparelhoActivity extends AppCompatActivity {
     }
 
     private void adicionarAparelho() {
-        if (AcademiaController.adicionarAparelho(this, aparelho)){
+        usuario = UsuarioController.getUsuario(this, username);
+        if (AcademiaController.adicionarAparelho(this, aparelho, usuario)){
             Toast.makeText(this, getString(R.string.msg_aparelho_inserido), Toast.LENGTH_SHORT).show();
         }
     }
 
     private void removerAparelho(){
-        if (AcademiaController.removerAparelho(this, aparelho)){
+        Usuario usuario = UsuarioController.getUsuario(this, username);
+        if (AcademiaController.removerAparelho(this, aparelho, usuario)){
             Toast.makeText(this, getString(R.string.msg_aparelho_removido), Toast.LENGTH_SHORT).show();
         }
 

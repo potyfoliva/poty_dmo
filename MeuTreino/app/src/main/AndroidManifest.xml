@@ -9,10 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MeuTreino">
-        <activity android:name=".view.AcademiaActivity"></activity>
-        <activity android:name=".view.ListaExerciciosActivity" />
+        <activity android:name=".view.esportista.VisaoGeralEsportistaActivity"></activity>
+        <activity android:name=".view.educador.VisaoGeralEducadorActivity" />
+        <activity android:name=".view.educador.ListaEsportistasActivity" />
+        <activity android:name=".view.geral.CadastroActivity" />
+        <activity android:name=".view.geral.LoginActivity" />
+        <activity android:name=".view.AcademiaActivity" />
+        <activity android:name=".view.esportista.ListaExerciciosActivity" />
         <activity android:name=".view.AparelhoActivity" />
-        <activity android:name=".view.MainActivity">
+        <activity
+            android:name=".view.geral.MainActivity"
+            android:configChanges="uiMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

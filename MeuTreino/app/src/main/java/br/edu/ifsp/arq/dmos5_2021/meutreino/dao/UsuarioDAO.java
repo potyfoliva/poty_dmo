@@ -1,8 +1,10 @@
 package br.edu.ifsp.arq.dmos5_2021.meutreino.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +22,17 @@ public class UsuarioDAO {
         mHelper = new SQLiteHelper(context);
     }
 
-    /*public boolean insert(Exercicio exercicio){
+    public boolean insert(Usuario usuario){
         boolean deuCerto = true;
         ContentValues values = new ContentValues();
-        values.put(ExercicioContract.ExercicioEntry.COLUMN_NOME, exercicio.getNome());
+        values.put(UsuarioContract.UsuarioEntry.COLUMN_NOME, usuario.getNome());
+        values.put(UsuarioContract.UsuarioEntry.COLUMN_SENHA, usuario.getSenha());
+        values.put(UsuarioContract.UsuarioEntry.COLUMN_EMAIL, usuario.getEmail());
+        values.put(UsuarioContract.UsuarioEntry.COLUMN_TIPO, usuario.getTipo());
 
         try{
             mDatabase = mHelper.getWritableDatabase();
-            long lines = mDatabase.insert(ExercicioContract.ExercicioEntry.TABLE_NAME, null, values);
+            long lines = mDatabase.insert(UsuarioContract.UsuarioEntry.TABLE_NAME, null, values);
             if(lines == -1)
                 deuCerto = false;
         }catch (Exception e){
@@ -36,7 +41,7 @@ public class UsuarioDAO {
             mDatabase.close();
         }
         return deuCerto;
-    }*/
+    }
 
     public List<Usuario> recuperate(){
         List<Usuario> usuarioList = new ArrayList<>();
@@ -79,7 +84,7 @@ public class UsuarioDAO {
 
         try {
             mDatabase = mHelper.getReadableDatabase();
-            Cursor cursor = mDatabase.query(ExercicioContract.ExercicioEntry.TABLE_NAME, columns, selection, args, null, null, null);
+            Cursor cursor = mDatabase.query(UsuarioContract.UsuarioEntry.TABLE_NAME, columns, selection, args, null, null, null);
             if(cursor.moveToNext()){
                 usuario = new Usuario(cursor.getString(0), cursor.getLong(1), cursor.getString(2), cursor.getString(3));
             }
@@ -89,5 +94,13 @@ public class UsuarioDAO {
             mDatabase.close();
         }
         return usuario;
+    }
+
+    public boolean validate(String email, int senha, String tipo){
+        Usuario u = recuperate(email);
+        if(u != null){
+            return u.getEmail().equals(email) && u.getSenha() == senha && u.getTipo().equals(tipo);
+        }
+        return false;
     }
 }

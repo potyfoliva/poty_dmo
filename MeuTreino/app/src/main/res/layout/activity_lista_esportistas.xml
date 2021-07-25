@@ -4,30 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.esportista.ListaExerciciosActivity">
+    tools:context=".view.educador.ListaEsportistasActivity">
 
     <TextView
-        android:id="@+id/txt_titulo_exercicios"
+        android:id="@+id/txt_titulo_esportistas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:textColor="@color/white"
-        android:text="@string/titulo_exercicios"
+        android:text="@string/titulo_usuarios"
         android:textAlignment="center"
         android:textStyle="bold"
         android:background="@color/purple_500"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/recycler_exercicios"/>
+        app:layout_constraintBottom_toTopOf="@id/recycler_esportistas"/>
 
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_exercicios"
+        android:id="@+id/recycler_esportistas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/txt_titulo_exercicios" />
-
+        app:layout_constraintTop_toBottomOf="@id/txt_titulo_esportistas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

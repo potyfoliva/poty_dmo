@@ -1,6 +1,5 @@
 package br.edu.ifsp.arq.dmos5_2021.meutreino.model;
 
-import java.util.List;
 
 public class Usuario {
 
@@ -8,7 +7,6 @@ public class Usuario {
     private long senha;
     private String email;
     private String tipo;
-    //private List<Aparelho> aparelhoList;
 
     public Usuario(String nome, long senha, String email, String tipo) {
         this.nome = nome;
@@ -49,12 +47,20 @@ public class Usuario {
         this.tipo = tipo;
     }
 
+    public boolean validate(String userName, int password, String tipo){
+        if(userName != null){
+            return this.email.equals(userName) && this.senha == password && this.tipo.equals(tipo);
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
-                ", senha='" + senha + '\'' +
+                ", senha=" + senha +
                 ", email='" + email + '\'' +
+                ", tipo='" + tipo + '\'' +
                 '}';
     }
 }

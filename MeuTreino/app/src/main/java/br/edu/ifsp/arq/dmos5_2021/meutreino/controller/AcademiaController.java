@@ -9,24 +9,25 @@ import br.edu.ifsp.arq.dmos5_2021.meutreino.adapter.ItemAparelhoAdapter;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.dao.AcademiaDAO;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Academia;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Aparelho;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Usuario;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.view.RecyclerItemClickListener;
 
 public class AcademiaController {
 
-    public static boolean adicionarAparelho(Context context, Aparelho aparelho){
+    public static boolean adicionarAparelho(Context context, Aparelho aparelho, Usuario usuario){
         AcademiaDAO dao = new AcademiaDAO(context);
-        return dao.insert(new Academia(aparelho));
+        return dao.insert(new Academia(usuario, aparelho));
     }
 
-    public static boolean removerAparelho(Context context, Aparelho aparelho){
+    public static boolean removerAparelho(Context context, Aparelho aparelho, Usuario usuario){
         AcademiaDAO dao = new AcademiaDAO(context);
-        return dao.delete(new Academia(aparelho));
+        return dao.delete(new Academia(usuario, aparelho));
     }
 
-    public static void updateAdapterDataSource(Context context, ItemAparelhoAdapter adapter){
+    public static void updateAdapterDataSource(Context context, String userName, ItemAparelhoAdapter adapter){
         List<Academia> aparelhosAcademia;
         AcademiaDAO dao = new AcademiaDAO(context);
-        aparelhosAcademia = dao.recuperate();
+        aparelhosAcademia = dao.recuperate(userName);
 
         List<Aparelho> aparelhos = new ArrayList<>();
         for (Academia a : aparelhosAcademia) {
@@ -36,10 +37,10 @@ public class AcademiaController {
         adapter.setDataSource(aparelhos);
     }
 
-    public static ItemAparelhoAdapter getAparelhosAcademiaAdapter(Context context, RecyclerItemClickListener listener){
+    public static ItemAparelhoAdapter getAparelhosAcademiaAdapter(Context context, String userName, RecyclerItemClickListener listener){
         List<Academia> aparelhosAcademia;
         AcademiaDAO dao = new AcademiaDAO(context);
-        aparelhosAcademia = dao.recuperate();
+        aparelhosAcademia = dao.recuperate(userName);
 
         List<Aparelho> aparelhos = new ArrayList<>();
         for (Academia a : aparelhosAcademia) {
@@ -47,6 +48,13 @@ public class AcademiaController {
         }
         return new ItemAparelhoAdapter(aparelhos, listener);
     }
+
+    /*public static List<Academia> getAcademiaPorEsportista(Context context, Usuario usuario){
+        List<Academia> academiaList;
+        AcademiaDAO dao = new AcademiaDAO(context);
+        academiaList = dao.recuperate(usuario);
+        return academiaList;
+    }*/
 
 
 }

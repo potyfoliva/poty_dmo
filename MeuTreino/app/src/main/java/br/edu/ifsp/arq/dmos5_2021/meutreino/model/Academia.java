@@ -2,21 +2,21 @@ package br.edu.ifsp.arq.dmos5_2021.meutreino.model;
 
 public class Academia {
 
-    //private Usuario usuario;
+    private Usuario usuario;
     private Aparelho aparelho;
 
-    public Academia(/*Usuario usuario, */Aparelho aparelho) {
-        //this.usuario = usuario;
+    public Academia(Usuario usuario, Aparelho aparelho) {
+        this.usuario = usuario;
         this.aparelho = aparelho;
     }
 
-    /*public Usuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }*/
+    }
 
     public Aparelho getAparelho() {
         return aparelho;
@@ -29,7 +29,7 @@ public class Academia {
     @Override
     public String toString() {
         return "Academia{" +
-                //"usuario='" + usuario + '\'' +
+                "usuario='" + usuario + '\'' +
                 ", aparelho='" + aparelho + '\'' +
                 '}';
     }
