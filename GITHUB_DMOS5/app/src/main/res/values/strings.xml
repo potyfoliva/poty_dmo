@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GITHUB_DMOS5</string>
+    <string name="hint_url_repos_git">Digite o nome do usuário</string>
+    <string name="botao_buscar">Buscar</string>
+    <string name="endereco_invalido">Usuário informado é inválido.</string>
+    <string name="erro_api">Erro ao localizar usuário.</string>
+    <string name="explicacao_permissao">A busca do usuário depende do acesso a internet, sem essa permissão o aplicativo não consegue recuperar a informação desejada.</string>
+    <string name="botao_fornecer">Fornecer</string>
+    <string name="botao_nao_fornecer">Agora não</string>
+</resources>
