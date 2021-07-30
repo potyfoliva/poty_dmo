@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/txt_nome_exercicio_atividade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:textSize="30sp"
+        android:text="teste"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_tempo_repeticao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="19sp"
+        android:textColor="@color/black"
+        android:text="@string/txt_tempo_repeticao"
+        app:layout_constraintStart_toStartOf="@id/txt_nome_exercicio_atividade"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nome_exercicio_atividade"
+        app:layout_constraintBottom_toTopOf="@id/spinner_tempo_repeticao"/>
+
+    <Spinner
+        android:id="@+id/spinner_tempo_repeticao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/text_tempo_repeticao"
+        app:layout_constraintTop_toBottomOf="@+id/text_tempo_repeticao"/>
+
+    <EditText
+        android:id="@+id/edit_tempo_repeticao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:hint="@string/hint_tempo_repeticao"
+        android:inputType="number"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="@id/spinner_tempo_repeticao"
+        app:layout_constraintTop_toBottomOf="@id/spinner_tempo_repeticao" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

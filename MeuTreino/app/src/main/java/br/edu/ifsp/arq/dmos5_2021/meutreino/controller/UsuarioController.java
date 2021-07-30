@@ -1,6 +1,7 @@
 package br.edu.ifsp.arq.dmos5_2021.meutreino.controller;
 
 import android.content.Context;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,20 @@ public class UsuarioController {
         UsuarioDAO dao = new UsuarioDAO(context);
         usuario = dao.recuperate(userName);
         return usuario;
+    }
+
+    public static ArrayAdapter<Usuario> getEsportistaSpinner(Context context){
+        UsuarioDAO dao = new UsuarioDAO(context);
+        List<Usuario> usuarios = dao.recuperate();
+        List<Usuario> aux = new ArrayList<>();
+        for (Usuario u: usuarios) {
+            if(u.getTipo().equals(Constants.ESPORTISTA)){
+                aux.add(u);
+            }
+        }
+        ArrayAdapter<Usuario> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, aux);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
     }
 
 

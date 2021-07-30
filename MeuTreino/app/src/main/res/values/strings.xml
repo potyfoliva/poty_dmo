@@ -3,6 +3,14 @@
     <string name="btn_exercicios">Exercícios</string>
     <string name="btn_academia">Minha academia</string>
     <string name="btn_treino">Meu treino</string>
+    <string name="txt_tempo_repeticao">Selecione o tipo de contagem:</string>
+    <string-array name="spiner_tempo_repeticao">
+        <item>Tempo</item>
+        <item>Repetição</item>
+    </string-array>
+    <string name="hint_tempo_repeticao">Digite o tempo ou repetição</string>
+    <string name="titulo_cadastro_treino">Cadastro Treino</string>
+    <string name="txt_esportistas">Selecione o esportista:</string>
     <string name="btn_add">Adicionar aparelho</string>
     <string name="btn_rmv">Remover aparelho</string>
     <string name="txt_info_1">Antes de iniciar qualquer exercício, é recomendado que consulte um médico e faça uma análise sobre a sua saúde antes de qualquer exercício físico.</string>

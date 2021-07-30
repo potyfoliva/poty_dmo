@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifsp.arq.dmos5_2021.meutreino.adapter.ItemAparelhoAdapter;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.adapter.ItemAtividadeAdapter;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.dao.AcademiaDAO;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Academia;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Aparelho;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Atividade;
+import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Exercicio;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.model.Usuario;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.view.RecyclerItemClickListener;
 
@@ -48,6 +51,18 @@ public class AcademiaController {
         }
         return new ItemAparelhoAdapter(aparelhos, listener);
     }
+
+    /*public static ItemAtividadeAdapter getAtividadesAdapter(Context context, String userName, RecyclerItemClickListener listener){
+        List<Academia> aparelhosAcademia;
+        AcademiaDAO dao = new AcademiaDAO(context);
+        aparelhosAcademia = dao.recuperate(userName);
+
+        List<Exercicio> atividades = new ArrayList<>();
+        for (Academia a : aparelhosAcademia) {
+            atividades.add(a.getAparelho().getExercicio());
+        }
+        return new ItemAtividadeAdapter(context, atividades, listener);
+    }*/
 
     /*public static List<Academia> getAcademiaPorEsportista(Context context, Usuario usuario){
         List<Academia> academiaList;

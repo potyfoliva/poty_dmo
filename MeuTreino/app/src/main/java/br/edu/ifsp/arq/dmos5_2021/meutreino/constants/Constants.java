@@ -7,6 +7,10 @@ public class Constants {
     public static final String EDUCADOR = "Educador físico";
     public static final String ESPORTISTA = "Esportista";
 
+    public static final String REPETICAO = "Repetição";
+    public static final String TEMPO = "Tempo";
+
+
     public static final String KEY_NOME= "nome";
     public static final String KEY_USO= "uso";
     public static final String KEY_FOTO= "foto";

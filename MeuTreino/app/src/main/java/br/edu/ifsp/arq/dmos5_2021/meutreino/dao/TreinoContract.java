@@ -17,7 +17,7 @@ public class TreinoContract {
     public static String createTable() {
         return "CREATE TABLE " +  TreinoContract.TreinoEntry.TABLE_NAME + " ("
                 + TreinoContract.TreinoEntry.COLUMN_ATIVIDADE + " INTEGER NOT NULL, "
-                + TreinoContract.TreinoEntry.COLUMN_USUARIO + " TEXT NOT NULL, "
+                + TreinoContract.TreinoEntry.COLUMN_USUARIO + " TEXT NOT NULL PRIMARY KEY, "
                 + "FOREIGN KEY (" + TreinoContract.TreinoEntry.COLUMN_ATIVIDADE + ") REFERENCES " + AtividadeContract.AtividadeEntry.TABLE_NAME + "(" + AtividadeContract.AtividadeEntry._ID + ") "
                 + "FOREIGN KEY (" + TreinoContract.TreinoEntry.COLUMN_USUARIO + ") REFERENCES " + UsuarioContract.UsuarioEntry.TABLE_NAME + "(" + UsuarioContract.UsuarioEntry.COLUMN_NOME + ") )";
     }

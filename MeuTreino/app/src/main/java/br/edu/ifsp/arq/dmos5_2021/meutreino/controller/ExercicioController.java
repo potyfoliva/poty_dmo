@@ -4,6 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
+import br.edu.ifsp.arq.dmos5_2021.meutreino.adapter.ItemAtividadeAdapter;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.adapter.ItemExercicioAdapter;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.dao.AparelhoDAO;
 import br.edu.ifsp.arq.dmos5_2021.meutreino.dao.ExercicioDAO;
@@ -26,7 +27,4 @@ public class ExercicioController {
         aparelho = dao.recuperateExercicio(nome);
         return aparelho;
     }
-
-
-
 }

@@ -4,16 +4,18 @@ public class Atividade {
 
     private int id;
     private Aparelho aparelho;
-    private int repeticao;
-    private int tempo;
-    private boolean completado;
+    private String tempo_repeticao;
+    private int completado;
 
-    public Atividade(int id, Aparelho aparelho, int repeticao, int tempo, boolean completado) {
+    public Atividade(int id, Aparelho aparelho, String tempo_repeticao, int completado) {
         this.id = id;
         this.aparelho = aparelho;
-        this.repeticao = repeticao;
-        this.tempo = tempo;
+        this.tempo_repeticao = tempo_repeticao;
         this.completado = completado;
+    }
+
+    public Atividade(Aparelho aparelho) {
+        this.aparelho = aparelho;
     }
 
     public int getId() {
@@ -32,27 +34,20 @@ public class Atividade {
         this.aparelho = aparelho;
     }
 
-    public int getRepeticao() {
-        return repeticao;
+
+    public String getTempo_repeticao() {
+        return tempo_repeticao;
     }
 
-    public void setRepeticao(int repeticao) {
-        this.repeticao = repeticao;
+    public void setTempo_repeticao(String tempo_repeticao) {
+        this.tempo_repeticao = tempo_repeticao;
     }
 
-    public int getTempo() {
-        return tempo;
-    }
-
-    public void setTempo(int tempo) {
-        this.tempo = tempo;
-    }
-
-    public boolean isCompletado() {
+    public int getCompletado() {
         return completado;
     }
 
-    public void setCompletado(boolean completado) {
+    public void setCompletado(int completado) {
         this.completado = completado;
     }
 
@@ -61,8 +56,7 @@ public class Atividade {
         return "Atividade{" +
                 "id=" + id +
                 ", aparelho=" + aparelho +
-                ", repeticao=" + repeticao +
-                ", tempo=" + tempo +
+                ", tempo_repeticao='" + tempo_repeticao + '\'' +
                 ", completado=" + completado +
                 '}';
     }

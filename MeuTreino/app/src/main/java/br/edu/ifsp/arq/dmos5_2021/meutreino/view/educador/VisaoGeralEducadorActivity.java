@@ -38,6 +38,7 @@ public class VisaoGeralEducadorActivity extends AppCompatActivity {
     }
 
     private void cadastrarTreino(){
-
+        Intent intent = new Intent(this, CadastroTreinoActivity.class);
+        startActivity(intent);
     }
 }
